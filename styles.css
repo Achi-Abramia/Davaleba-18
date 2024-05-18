@@ -1,0 +1,13 @@
+.registration_form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 30%;
+    margin: 0 auto;
+  }
+  
+  
+  input,
+  button {
+    padding: 10px;
+  }
