@@ -8,7 +8,10 @@
   <title>Document</title>
 </head>
 <body>
-<div class="reg_form">
+<div class="exercise_first">
+  <div class="title">
+    <h2>Davaleba 01</h2>
+  </div>
     <form action="index.php" method="post" class="registration_form" id="registration" name="registration">
         <h4>Sign Up</h4>
         <input type="text" name="first_name" id="first_name" placeholder="First Name">
@@ -23,9 +26,23 @@
         <p id="confirm_password_error"></p>
         <textarea name="description" id="description" cols="30" rows="6" placeholder="Description"></textarea>
         <p id="description_error"></p>
-        <button>Registration</button>
+        <button id="reg_button">Registration</button>
     </form>
 </div>
+  <div class="exercise_second">
+    <h2>Davaleba 02</h2>
+    <input type="text" name="text_for_array" id="text_for_array" placeholder="Enter text for array">
+    <button id="array_button">Send To Array</button>
+    <ul id="array_text">
+      <li id="array_text_li"></li>
+    </ul>
+  </div>
+  <div class="exercise_third">
+    <h2>Davaleba 03</h2>
+    <ul id="person">
+    </ul>
+  </div>
+  <div id="user_list"></div>
   <script src="script.js"></script>
 </body>
 </html>

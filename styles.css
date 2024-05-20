@@ -1,13 +1,37 @@
-.registration_form {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    width: 30%;
-    margin: 0 auto;
-  }
-  
-  
-  input,
-  button {
-    padding: 10px;
-  }
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.registration_form  {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 30%;
+  margin: 0 auto;
+}
+
+input,
+button {
+  padding: 10px;
+}
+
+.exercise_second,
+.exercise_third,
+.title {
+display: flex;
+flex-direction: column;
+width: 30%;
+margin: 0 auto;
+margin-top: 20px;
+gap: 20px;
+}
+
+#card_container {
+display: grid;
+grid-template-columns: 1fr 1fr 1fr 1fr;
+grid-template-rows: 1fr;
+gap: 50px;
+margin-top: 50px;
+}
