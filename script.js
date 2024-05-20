@@ -185,7 +185,7 @@ document.body.appendChild(cardContainer)
 for (let i = 0; i < 4; i++) {
   const userInfo = users[i]
   const cardBox = document.createElement("div")
-  cardBox.setAttribute("id", "cardBox")
+  cardBox.setAttribute("id", "card_box")
   cardContainer.appendChild(cardBox)
 
 
@@ -214,9 +214,11 @@ for (let i = 0; i < 4; i++) {
   cardBox.appendChild(buttonInfo)
   
   buttonInfo.addEventListener("click", () => {
-    const cardEmail = document.createElement("span")
-    cardEmail.textContent = userInfo.email
-    cardEmail.setAttribute("id", "card_email")
-    cardBox.appendChild(cardEmail)
+    if (!cardBox.querySelector(".card_email")) {
+      const cardEmail = document.createElement("span")
+      cardEmail.textContent = userInfo.email
+      cardEmail.setAttribute("class", "card_email")
+      cardBox.appendChild(cardEmail)
+    }
   })
 }
