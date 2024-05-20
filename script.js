@@ -12,24 +12,25 @@
 
 
 const firstNameError = document.getElementById("first_name_error")
-
+const lastNameError = document.getElementById("last_name_error")
+const emailError = document.getElementById("email_error")
+const passwordError = document.getElementById("password_error")
+const confirmPasswordError = document.getElementById("confirm_password_error")
+const descriptionError = document.getElementById("description_error")
 
 const registrationForm = document.getElementById("registration")
 registrationForm.addEventListener("submit", (e) => {
   e.preventDefault()
+
   const registrationValues = document.forms["registration"]
   const firstName = registrationValues.first_name
   const lastName = registrationValues.last_name
-  const lastNameError = registrationValues.last_name_error
   const email = registrationValues.email
-  const emailError = registrationValues.email_error
   const password = registrationValues.password
-  const passwordError = registrationValues.password_error
   const confirmPassword = registrationValues.confirm_password
-  const confirmPasswordError = registrationValues.confirm_password_error
   const description = registrationValues.description
-  const descriptionError = registrationValues.description_error
-  
+
+
   try {
     if (firstName.value.length < 6) {
       firstName.style.border = "2px solid red"
@@ -39,10 +40,45 @@ registrationForm.addEventListener("submit", (e) => {
       firstNameError.textContent = "First name is valid"
       firstNameError.style.color = "green"
     }
+    if (lastName.value.length < 6) {
+      lastName.style.border = "2px solid red"
+      throw new Error("Last name must contain minimum 6 letter")
+    } else {
+      lastName.style.border = "2px solid green"
+      lastNameError.textContent = "last name is valid"
+      lastNameError.style.color = "green"
+    }
+    if (password.value.length < 6) {
+      password.style.border = "2px solid red"
+      throw new Error("Password must contain minimum 6 letter")
+    } else {
+      password.style.border = "2px solid green"
+      passwordError.textContent = "Password is valid"
+      passwordError.style.color = "green"
+    }
+    if (confirmPassword !== password) {
+      confirmPassword.style.border = "2px solid red"
+      throw new Error("The password confirmation doesn't march")
+    } else {
+      confirmPassword.style.border = "2px solid green"
+      confirmPasswordError.textContent = "The password confirmation is valid"
+      confirmPasswordError.style.color = "green"
+    }
+    if (description.value.length > 100) {
+      description.style.border = "2px solid red"
+      throw new Error("Description character limit is 100")
+    } else {
+      description.style.border = "2px solid green"
+      descriptionError.textContent = "Description is valid"
+      descriptionError.style.color = "green"
+    }
   } catch (error) {
     firstNameError.textContent = error.message
     firstNameError.style.color = "red"
-  }
+    lastNameError.textContent = error.message
+    lastNameError.style.color = "red"
+  } 
+
 })
 
 
