@@ -17,6 +17,8 @@ const emailError = document.getElementById("email_error")
 const passwordError = document.getElementById("password_error")
 const confirmPasswordError = document.getElementById("confirm_password_error")
 const descriptionError = document.getElementById("description_error")
+const status = document.getElementById("status")
+
 
 const registrationForm = document.getElementById("registration")
 registrationForm.addEventListener("submit", (e) => {
@@ -29,7 +31,6 @@ registrationForm.addEventListener("submit", (e) => {
   const password = registrationValues.password
   const confirmPassword = registrationValues.confirm_password
   const description = registrationValues.description
-
 
   try {
     if (firstName.value.length < 6) {
@@ -48,6 +49,22 @@ registrationForm.addEventListener("submit", (e) => {
       lastNameError.textContent = "last name is valid"
       lastNameError.style.color = "green"
     }
+
+    // const validateEmail = (email) => {
+    //   return email.match(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
+    // }
+    
+    // const validate = () => {
+    //   email.value()
+    //   emailError.textContent = ""
+    // }
+
+    // if (validateEmail(email)) {
+    //   emailError.textContent = ``
+    // } else {
+      
+    // }
+
     if (password.value.length < 6) {
       password.style.border = "2px solid red"
       throw new Error("Password must contain minimum 6 letter")
@@ -56,7 +73,7 @@ registrationForm.addEventListener("submit", (e) => {
       passwordError.textContent = "Password is valid"
       passwordError.style.color = "green"
     }
-    if (confirmPassword !== password) {
+    if (confirmPassword.value !== password.value) {
       confirmPassword.style.border = "2px solid red"
       throw new Error("The password confirmation doesn't march")
     } else {
@@ -73,10 +90,8 @@ registrationForm.addEventListener("submit", (e) => {
       descriptionError.style.color = "green"
     }
   } catch (error) {
-    firstNameError.textContent = error.message
-    firstNameError.style.color = "red"
-    lastNameError.textContent = error.message
-    lastNameError.style.color = "red"
+    status.textContent = error.message
+    status.style.color = "red"
   } 
 
 })
